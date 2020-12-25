@@ -1,1 +1,1 @@
-# SmartSchool.WebAPI
+# SmartSchool
