@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using SmartSchool.Models;
 
@@ -40,6 +41,15 @@ namespace SmartSchool.Controllers
         public IActionResult Get()
         {
             return Ok(Alunos);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetbyId(int id)
+        {
+            var aluno = Alunos.FirstOrDefault(x => x.Id == id);
+            if(aluno == null) return BadRequest("Aluno não encontrado.");
+
+            return Ok(aluno);
         }
     }
 }
